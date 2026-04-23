@@ -1,26 +1,43 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+    /* As tuas cores vão criar classes automáticas como bg-fundo ou text-castanho-raiz */
+    --color-fundo: #efe5d8;
+    --color-verde-raiz: #5F6B4E;
+    --color-verde-escuro: #4A543D;
+    --color-castanho-raiz: #4a3b32;
+    --color-destaque: #fff8e1;
+
+    /* As tuas fontes */
+    --font-principal: "Minigap", sans-serif;
+    --font-destaque: "MisterGrape", cursive;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Importação das Fontes */
+@font-face {
+    font-family: 'Minigap';
+    src: url('/fonts/Minigap-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+    font-family: 'Minigap';
+    src: url('/fonts/Minigap-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
 }
 
+@font-face {
+    font-family: 'MisterGrape';
+    src: url('/fonts/MisterGrape.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Estilo Base da Página */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-principal);
+    background-color: var(--color-fundo);
+    color: var(--color-castanho-raiz);
 }
