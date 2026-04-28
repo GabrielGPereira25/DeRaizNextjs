@@ -7,11 +7,10 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-castanho-raiz text-[#fdfbf7] pt-16 font-sans">
-            {/* Contentor Principal do Rodapé */}
-            <div className="max-w-7xl mx-auto px-6 pb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-center lg:text-left items-start">
+        <footer className="bg-castanho-raiz text-[#ccc] pt-16 font-sans">
+            <div className="max-w-7xl mx-auto px-6 pb-16 grid grid-cols-1 md:grid-cols-3 gap-12 text-center items-start">
 
-                {/* Coluna 1: Informações e Logo */}
+                {/* Coluna 1*/}
                 <div className="flex flex-col items-center space-y-4">
                     <Link href="/">
                         <Image
@@ -22,57 +21,71 @@ export default function Footer() {
                             className="transition-transform hover:scale-105"
                         />
                     </Link>
-                    <p className="text-gray-300 text-sm leading-relaxed max-w-xs text-center">
+                    <p className="text-gray-300 text-base leading-relaxed max-w-xs text-center">
                         Cafetaria e Mercearia Biológica. <br />
                         A tua escolha natural em Leiria.
                     </p>
 
                     {/* Redes Sociais */}
                     <div className="flex justify-center gap-4 pt-4">
-                        <SocialIcon href="https://www.instagram.com/de.raiz.bio/" icon="instagram" />
-                        <SocialIcon href="https://www.facebook.com/deraiz.cafetaria/" icon="facebook" />
+                        <SocialIcon href="https://instagram.com/de.raiz.bio/" icon="instagram" />
+                        <SocialIcon href="https://facebook.com/deraiz.cafetaria/" icon="facebook" />
                     </div>
                 </div>
 
-                {/* Coluna 2: Links Úteis */}
-                <div className="flex flex-col items-center">
-                    <h4 className="text-[#e0d8cc] text-lg font-semibold uppercase tracking-wider mb-6">
-                        Links Úteis
+                {/* Coluna 2*/}
+                <div className="flex flex-col items-center font-semibold">
+                    <h4 className="text-fundo text-xl font-bold uppercase tracking-wider mb-6">
+                        Contactos
                     </h4>
-                    <ul className="space-y-3 text-gray-400 text-sm">
-                        <li><Link href="/" className="hover:text-verde-raiz transition-colors">Início</Link></li>
-                        <li><Link href="/menu" className="hover:text-verde-raiz transition-colors">Menu</Link></li>
-                        <li><Link href="/reservas" className="hover:text-verde-raiz transition-colors">Reservas</Link></li>
-                        <li><Link href="/sobre-nos" className="hover:text-verde-raiz transition-colors">Sobre Nós</Link></li>
-                        <li className="pt-2"><Link href="/termos" className="hover:text-verde-raiz transition-colors italic">Termos de Utilização</Link></li>
-                        <li><Link href="/privacidade" className="hover:text-verde-raiz transition-colors italic">Política de Privacidade</Link></li>
-                    </ul>
+                    <div className="space-y-4 text-[#ccc] text-base flex flex-col items-center">
+                        <p>📍 Leiria, Portugal</p>
+
+                        <div className="flex flex-col items-center space-y-4">
+                            <a
+                                href="mailto:geral@deraiz.pt"
+                                className="hover:text-verde-raiz transition-colors flex items-center gap-2"
+                            >
+                                📧 geral@deraiz.pt
+                            </a>
+                            <a
+                                href="mailto:suporte@deraiz.pt"
+                                className="hover:text-verde-raiz transition-colors flex items-center gap-2"
+                            >
+                                📧 suporte@deraiz.pt
+                            </a>
+                        </div>
+                        <a
+                            href="tel:+351917969431"
+                            className="hover:text-verde-raiz transition-colors flex items-center gap-2"
+                        >
+                            📞 +351 917 969 431
+                        </a>
+                        <p className="text-[#888] text-xs">(Chamada para rede móvel nacional)</p>
+                    </div>
                 </div>
 
-                {/* Coluna 3: Contactos & Horário */}
+                {/* Coluna 3*/}
                 <div className="flex flex-col items-center">
-                    <h4 className="text-[#e0d8cc] text-lg font-semibold uppercase tracking-wider mb-6">
-                        Contactos & Horário
+                    <h4 className="text-fundo text-xl font-bold uppercase tracking-wider mb-6">
+                        Horário
                     </h4>
-                    <div className="space-y-4 text-gray-400 text-sm">
-                        <p>📍 Rua Principal, Nº 123, Lisboa</p>
-                        <p>📞 +351 912 345 678</p>
-                        <p>📧 geral@deraiz.pt</p>
+                    <div className="space-y-3 text-gray-400 text-base flex flex-col items-center">
 
                         {/* Lista de Horários */}
-                        <div className="pt-4 border-t border-white/10 w-full lg:w-auto">
-                            <ul className="space-y-2">
-                                <li className="flex justify-center lg:justify-start gap-4">
-                                    <span className="font-bold text-[#e0d8cc] min-w-[80px] text-right lg:text-left">Ter - Sex</span>
-                                    <span>08:00 - 19:00</span>
+                        <div className="w-full flex flex-col items-center">
+                            <ul className="space-y-3">
+                                <li className="flex justify-center gap-4">
+                                    <span className="font-bold text-fundo w-20 text-right">Seg - Sex:</span>
+                                    <span className="w-24 text-[#ccc]">09:00 - 19:00</span>
                                 </li>
-                                <li className="flex justify-center lg:justify-start gap-4">
-                                    <span className="font-bold text-[#e0d8cc] min-w-[80px] text-right lg:text-left">Sáb - Dom</span>
-                                    <span>09:00 - 13:00</span>
+                                <li className="flex justify-center gap-4">
+                                    <span className="font-bold text-fundo w-20 text-right">Sábado:</span>
+                                    <span className="w-24 text-[#ccc]">09:00 - 17:00</span>
                                 </li>
-                                <li className="flex justify-center lg:justify-start gap-4 text-red-400">
-                                    <span className="font-bold min-w-[80px] text-right lg:text-left">Segunda</span>
-                                    <span>Encerrado</span>
+                                <li className="flex justify-left">
+                                    <span className="font-bold text-fundo w-20 text-right">Domingo:</span>
+                                    <span className="w-24 text-[#ccc]">Fechado</span>
                                 </li>
                             </ul>
                         </div>
@@ -81,10 +94,34 @@ export default function Footer() {
             </div>
 
             {/* Copyright Section */}
-            <div className="bg-[#2e241f] py-6 px-6 text-center">
-                <p className="text-[#999] text-xs">
-                    &copy; {currentYear} DeRaiz - Padaria & Pastelaria Artesanal. Todos os direitos reservados.
+            <div className="bg-[#2e241f] py-6 px-6 flex flex-col items-center gap-3">
+                <p className="text-[#999] text-xs text-center">
+                    &copy; {currentYear} DeRaiz - Cafetaria & Mercearia. Todos os direitos reservados.
                 </p>
+
+                {/* Links Legais e Livro de Reclamações */}
+                <div className="flex flex-wrap justify-center items-center gap-3 text-[#888] text-sm">
+                    <Link href="/privacidade" className="hover:text-white transition-colors">
+                        Política de Privacidade
+                    </Link>
+                    <span className="text-[#555]">|</span>
+
+                    <Link href="/termos" className="hover:text-white transition-colors">
+                        Termos e Condições
+                    </Link>
+                    <span className="text-[#555]">|</span>
+
+                    {/* Caso tenhas uma página interna, muda o href para "/livro-reclamacoes". 
+                        Se for para o portal oficial, podes colocar o link completo. */}
+                    <a
+                        href="https://www.livroreclamacoes.pt/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white transition-colors"
+                    >
+                        Livro de Reclamações
+                    </a>
+                </div>
             </div>
         </footer>
     );
@@ -92,7 +129,6 @@ export default function Footer() {
 
 // Componente auxiliar para os ícones sociais
 function SocialIcon({ href, icon }) {
-    // Função que devolve o SVG correto consoante a rede social
     const renderIcon = () => {
         switch (icon) {
             case 'instagram':
@@ -114,7 +150,6 @@ function SocialIcon({ href, icon }) {
                     </svg>
                 );
             default:
-                // Se mandares algo que não esteja na lista, mostra a primeira letra como "fallback"
                 return <span className="text-xs font-bold uppercase">{icon[0]}</span>;
         }
     };
@@ -124,7 +159,6 @@ function SocialIcon({ href, icon }) {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            // Adicionei a cor do ícone padrão (text-white) e no hover ele muda com o fundo
             className="w-10 h-10 flex items-center justify-center bg-white/10 text-white rounded-full transition-all hover:bg-white hover:text-black shadow-sm"
         >
             {renderIcon()}
