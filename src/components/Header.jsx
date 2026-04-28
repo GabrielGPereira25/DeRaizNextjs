@@ -92,7 +92,7 @@ export default function Header() {
                             onMouseLeave={() => setIsProfileOpen(false)}
                         >
                             <div className="flex items-center gap-2 cursor-pointer">
-                                <div className="w-[40px] h-[40px] rounded-full overflow-hidden border-2 border-white/80 shadow-sm bg-white/20 flex items-center justify-center">
+                                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/80 shadow-sm bg-white/20 flex items-center justify-center">
                                     <Image src={userPhoto} alt="Perfil" width={40} height={40} className="object-cover" />
                                 </div>
                                 <span className={`text-white text-xs font-bold transition-transform duration-300 ${isProfileOpen ? 'rotate-180' : 'rotate-0'}`}>
