@@ -3,17 +3,15 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation'; // Importante: hook para saber a página atual
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileOpen, setIsMobileOpen] = useState(false);
     const [isProfileOpen, setIsProfileOpen] = useState(false);
 
-    const pathname = usePathname(); // Exemplo: devolve '/' ou '/menu' ou '/reservas'
+    const pathname = usePathname();
 
-    // SIMULAÇÃO DE ESTADO (Mais tarde iremos ligar isto à tua base de dados/autenticação)
-    // Muda o isLoggedIn para false para veres o botão de Login aparecer!
     const isLoggedIn = true;
     const isAdmin = true;
     const userPhoto = '/sources/user.svg';
@@ -36,7 +34,7 @@ export default function Header() {
             className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-castanho-raiz shadow-lg py-3' : 'bg-transparent py-5'
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div className="max-w-8xl mx-auto px-12 flex justify-between items-center text-lg">
 
                 {/* 1. ESQUERDA: LOGOTIPO */}
                 <div className="w-1/4 flex justify-start">
@@ -44,7 +42,7 @@ export default function Header() {
                         <Image
                             src="/sources/deraiz.webp"
                             alt="De Raiz Logo"
-                            width={110}
+                            width={130}
                             height={45}
                             priority
                             className="object-contain"
@@ -53,7 +51,7 @@ export default function Header() {
                 </div>
 
                 {/* 2. CENTRO: LINKS DE NAVEGAÇÃO */}
-                <nav className="hidden md:flex flex-1 justify-center items-center gap-6 text-white font-medium">
+                <nav className="hidden md:flex flex-1 justify-center items-center text-shadow-sm/20 gap-6 text-white font-medium">
                     <Link href="/" className={`hover:text-gray-200 border-b-2 pb-1 transition-all ${isActive('/') ? 'border-white' : 'border-transparent hover:border-gray-200'}`}>
                         Início
                     </Link>
@@ -92,7 +90,7 @@ export default function Header() {
                             onMouseLeave={() => setIsProfileOpen(false)}
                         >
                             <div className="flex items-center gap-2 cursor-pointer">
-                                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/80 shadow-sm bg-white/20 flex items-center justify-center">
+                                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/80 shadow-sm bg-white/20 flex items-center justify-center">
                                     <Image src={userPhoto} alt="Perfil" width={40} height={40} className="object-cover" />
                                 </div>
                                 <span className={`text-white text-xs font-bold transition-transform duration-300 ${isProfileOpen ? 'rotate-180' : 'rotate-0'}`}>

@@ -4,29 +4,29 @@ import Image from 'next/image';
 export default function Home() {
     return (
         <main className="font-principal text-castanho-raiz">
-            {/* HERO SECTION - Antiga hero-section hero-home */}
-            <section className="relative h-[80vh] flex items-center justify-center bg-[url('/sources/fundo-loja.webp')] bg-cover bg-center">
-                {/* Overlay para legibilidade */}
-                <div className="absolute inset-0 bg-black/30"></div>
+            {/* Hero */}
+            <section className="relative h-screen flex items-center justify-center bg-[url('/sources/fundo-loja.webp')] bg-cover bg-center">
+
+                <div className="absolute inset-0 bg-black/40"></div>
 
                 <div className="relative z-10 text-center text-white px-4">
-                    <h2 className="font-destaque text-5xl md:text-7xl leading-tight mb-4">
+                    <h2 className="font-destaque text-destaque text-5xl md:text-8xl leading-tight mb-4 text-shadow-lg/50">
                         Comer Bem é<br />De Raiz.
                     </h2>
-                    <p className="text-lg md:text-xl mb-8">
+                    <p className="text-lg md:text-xl mb-16 drop-shadow-md">
                         Sabores vegan e biológicos todos os dias da semana.
                     </p>
                     <Link
                         href="#ementa-hoje"
-                        className="bg-verde-raiz text-white px-8 py-3 rounded-full font-bold hover:bg-verde-escuro transition-all"
+                        className="inline-block bg-verde-raiz text-white px-8 py-3 rounded-full font-bold hover:bg-verde-escuro transition-all shadow-md/20"
                     >
                         Ver Ementa de Hoje
                     </Link>
                 </div>
             </section>
 
-            {/* EMENTA HOJE - Antigo #ementa-hoje */}
-            <section id="ementa-hoje" className="py-16 px-5 bg-fundo text-center">
+            {/* Ementa de Hoje */}
+            <section id="ementa-hoje" className="py-16 px-5 bg-fundo text-center scroll-mt-28">
                 <div className="max-w-3xl mx-auto mb-8">
                     <h2 className="font-destaque text-4xl md:text-5xl text-verde-raiz mb-2">
                         A Nossa Ementa
@@ -56,16 +56,15 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* NOSSO ESPAÇO */}
-            <section className="py-12 flex justify-center">
-                <div className="max-w-4xl w-full px-5">
-                    <Image
-                        src="/sources/nosso-espaço.webp"
-                        alt="O nosso espaço - De Raiz"
-                        width={800}
+            {/* 3. Imagem do nosso espaço */}
+            <section className="pb-24 px-6 bg-fundo flex justify-center items-center">
+                <div className="max-w-md w-full mx-auto">
+                    <Image 
+                        src="/sources/nosso-espaço.webp" 
+                        alt="O nosso espaço - De Raiz" 
+                        width={500}
                         height={500}
-                        className="rounded-2xl shadow-xl w-full h-auto object-cover"
-                        priority
+                        className="w-full h-auto rounded-lg shadow-2xl object-cover transition-transform duration-500 hover:scale-[1.02]"
                     />
                 </div>
             </section>
