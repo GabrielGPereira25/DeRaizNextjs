@@ -54,7 +54,7 @@ export default function MenuCard({ ementa, variant = 'menu' }) {
     if (variant === 'reservas') {
         return (
             <div className="p-6 bg-[#fcfaf7] rounded-xl border-2 border-fundo text-left">
-                <h4 className="font-bold text-castanho-raiz mb-4 uppercase text-sm tracking-widest border-b border-[#efe5d8] pb-2">Conteúdo da Ementa</h4>
+                <h4 className="font-bold text-castanho-raiz mb-4 uppercase text-sm tracking-widest border-b border-fundo pb-2">Conteúdo da Ementa</h4>
                 <ul className="space-y-3">
                     <li className="text-gray-700"><strong>Sopa:</strong> {sopa}</li>
                     <li className="text-gray-700"><strong>Prato:</strong> {prato}</li>
