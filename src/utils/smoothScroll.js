@@ -5,7 +5,7 @@ export const scrollToSection = (e, targetId) => {
     const targetElement = document.getElementById(id);
 
     if (targetElement) {
-        const headerOffset = 110;
+        const headerOffset = 105;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         const startPosition = window.pageYOffset;

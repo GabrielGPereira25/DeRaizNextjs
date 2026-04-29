@@ -1,9 +1,14 @@
 import Image from 'next/image';
 
 export default function MenuCard({ ementa, variant = 'menu' }) {
-    const sopa = ementa?.sopa || "---";
-    const prato = ementa?.prato || "---";
-    const sobremesa = ementa?.sobremesa || "---";
+    const limitarTexto = (texto, limite) => {
+        if (!texto) return "---";
+        return texto.length > limite ? texto.substring(0, limite).trim() + '...' : texto;
+    };
+
+    const sopa = limitarTexto(ementa?.sopa, 60);
+    const prato = limitarTexto(ementa?.prato, 85);
+    const sobremesa = limitarTexto(ementa?.sobremesa, 60);
     const imagem = ementa?.imagem || "/sources/fundo-menu.webp";
 
     // ==========================================
@@ -11,16 +16,17 @@ export default function MenuCard({ ementa, variant = 'menu' }) {
     // ==========================================
     if (variant === 'home') {
         return (
-            <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-castanho-raiz/10 text-left">
-                <div className="relative w-full md:w-1/2 h-72 md:h-auto">
+            <div className="max-w-4xl mx-auto h-150 md:h-87.5 bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-castanho-raiz/10 text-left">
+                <div className="relative w-full md:w-1/2 h-1/2 md:h-full">
                     <Image src={imagem} alt={prato} fill className="object-cover" />
                 </div>
-                <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-                    <h3 className="font-destaque text-4xl text-castanho-raiz mb-6">Ementa de Hoje</h3>
-                    <div className="space-y-4">
-                        <p className="text-gray-700 text-lg"><strong>🥣 Sopa:</strong> {sopa}</p>
-                        <p className="text-gray-700 text-lg"><strong>🍲 Prato:</strong> {prato}</p>
-                        <p className="text-gray-700 text-lg"><strong>🍰 Sobremesa:</strong> {sobremesa}</p>
+                <div className="w-full md:w-1/2 h-1/2 md:h-full p-8 flex flex-col justify-center">
+                    <h3 className="font-destaque text-4xl text-castanho-raiz mb-6 shrink-0">Ementa de Hoje</h3>
+                    {/* line-clamp-2 garante que não passa de 2 linhas visualmente */}
+                    <div className="space-y-4 overflow-hidden">
+                        <p className="text-gray-700 text-lg line-clamp-2"><strong>🥣 Sopa:</strong> {sopa}</p>
+                        <p className="text-gray-700 text-lg line-clamp-2"><strong>🍲 Prato:</strong> {prato}</p>
+                        <p className="text-gray-700 text-lg line-clamp-2"><strong>🍰 Sobremesa:</strong> {sobremesa}</p>
                     </div>
                 </div>
             </div>
@@ -32,16 +38,26 @@ export default function MenuCard({ ementa, variant = 'menu' }) {
     // ==========================================
     if (variant === 'menu') {
         return (
-            <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden border border-castanho-raiz/5 flex flex-col md:flex-row text-left transition-transform hover:scale-[1.01]">
-                <div className="relative w-full md:w-2/5 h-64 md:h-auto">
+            // Altura fixa adicionada aqui: h-[500px] md:h-[320px]
+            <div className="max-w-2xl mx-auto h-125 md:h-80 bg-white rounded-2xl shadow-lg overflow-hidden border border-castanho-raiz/5 flex flex-col md:flex-row text-left transition-transform hover:scale-[1.01]">
+                <div className="relative w-full md:w-2/5 h-2/5 md:h-full">
                     <Image src={imagem} alt={prato} fill className="object-cover" />
                 </div>
-                <div className="p-8 md:w-3/5 flex flex-col justify-center">
-                    <h3 className="font-destaque text-3xl text-verde-raiz mb-4">O Menu Completo</h3>
-                    <ul className="space-y-3 text-castanho-raiz">
-                        <li className="flex flex-col"><span className="text-xs uppercase font-bold text-gray-400">Sopa</span> <span className="text-lg">{sopa}</span></li>
-                        <li className="flex flex-col"><span className="text-xs uppercase font-bold text-gray-400">Prato Principal</span> <span className="text-lg font-bold">{prato}</span></li>
-                        <li className="flex flex-col"><span className="text-xs uppercase font-bold text-gray-400">Sobremesa</span> <span className="text-lg">{sobremesa}</span></li>
+                <div className="p-8 md:w-3/5 h-3/5 md:h-full flex flex-col justify-center">
+                    <h3 className="font-destaque text-3xl text-verde-raiz mb-4 shrink-0">O Menu Completo</h3>
+                    <ul className="space-y-3 text-castanho-raiz overflow-hidden">
+                        <li className="flex flex-col">
+                            <span className="text-xs uppercase font-bold text-gray-400">Sopa</span>
+                            <span className="text-lg line-clamp-2" title={ementa?.sopa}>{sopa}</span>
+                        </li>
+                        <li className="flex flex-col">
+                            <span className="text-xs uppercase font-bold text-gray-400">Prato Principal</span>
+                            <span className="text-lg font-bold line-clamp-2" title={ementa?.prato}>{prato}</span>
+                        </li>
+                        <li className="flex flex-col">
+                            <span className="text-xs uppercase font-bold text-gray-400">Sobremesa</span>
+                            <span className="text-lg line-clamp-2" title={ementa?.sobremesa}>{sobremesa}</span>
+                        </li>
                     </ul>
                 </div>
             </div>

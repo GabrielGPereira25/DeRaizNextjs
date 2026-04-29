@@ -38,7 +38,7 @@ export default function Home() {
             </section>
 
             {/* Ementa de Hoje */}
-            <section id="ementa-hoje" className="py-16 px-5 bg-fundo text-center scroll-mt-24">
+            <section id="ementa-hoje" className="py-16 px-5 bg-fundo text-center">
                 <div className="max-w-3xl mx-auto mb-8">
                     <h2 className="font-destaque text-4xl md:text-5xl text-verde-raiz mb-2">
                         A Nossa Ementa
