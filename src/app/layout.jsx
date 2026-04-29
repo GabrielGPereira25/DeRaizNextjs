@@ -1,23 +1,25 @@
+"use client"; // Necessário para usar usePathname
+
 import './globals.css';
+import { usePathname } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-export const metadata = {
-    title: 'De Raiz | Comer Bem é De Raiz',
-    description: 'Sabores vegan e biológicos em Leiria.',
-};
-
 export default function RootLayout({ children }) {
+    const pathname = usePathname();
+    const isAdminPage = pathname.startsWith('/admin');
+
     return (
         <html lang="pt" className="scroll-smooth">
             <body className="min-h-screen flex flex-col bg-fundo">
-                <Header />
+                {!isAdminPage && <Header />}
+
                 <main className="grow">
                     {children}
                 </main>
-                <Footer />
+                
+                {!isAdminPage && <Footer />}
             </body>
         </html>
     );
 }
-

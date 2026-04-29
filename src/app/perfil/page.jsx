@@ -31,7 +31,7 @@ export default function PerfilPage() {
                     <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-fundo bg-fundo/50 flex items-center justify-center">
                         <Image src={user.foto} alt="Foto de Perfil" fill className="object-cover p-4" />
                     </div>
-                    <div className="text-center md:text-left flex-grow">
+                    <div className="text-center md:text-left grow">
                         <h1 className="font-destaque text-4xl text-castanho-raiz mb-1">{user.nome}</h1>
                         <p className="text-gray-500 font-medium">Membro desde {user.dataRegisto}</p>
                         <div className="mt-4 flex flex-wrap justify-center md:justify-start gap-3">
