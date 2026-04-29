@@ -16,7 +16,7 @@ export default function SobreNos() {
                     <h1 className="font-destaque text-6xl md:text-8xl drop-shadow-md">
                         Sobre Nós
                     </h1>
-                    <div className="w-24 h-1 bg-[#efe5d8] mx-auto mt-2 mb-4"></div>
+                    <div className="w-24 h-1 bg-fundo mx-auto mt-2 mb-4"></div>
                     <p className="text-lg md:text-xl font-medium drop-shadow-sm">
                         Conheça a nossa história e a nossa paixão pelo que é natural.
                     </p>
@@ -41,7 +41,7 @@ export default function SobreNos() {
                             </p>
                         </div>
                     </div>
-                    <div className="w-full lg:w-1/2 relative h-[300px] md:h-[450px] rounded-3xl overflow-hidden shadow-2xl">
+                    <div className="w-full lg:w-1/2 relative h-75 md:h-112.5 rounded-3xl overflow-hidden shadow-2xl">
                         <Image
                             src="/sources/balcao-loja.webp"
                             alt="O balcão do De Raiz"
@@ -66,7 +66,7 @@ export default function SobreNos() {
                             </p>
                         </div>
                     </div>
-                    <div className="w-full lg:w-1/2 relative h-[300px] md:h-[450px] rounded-3xl overflow-hidden shadow-2xl">
+                    <div className="w-full lg:w-1/2 relative h-75 md:h-112.5 rounded-3xl overflow-hidden shadow-2xl">
                         <Image
                             src="/sources/nosso-espaço.webp"
                             alt="O nosso espaço interior"
