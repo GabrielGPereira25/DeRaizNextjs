@@ -126,15 +126,15 @@ export default function ContactosPage() {
                             />
                         </div>
 
-                        <h2 className="font-destaque text-5xl md:text-6xl text-castanho-raiz mb-4">Já nos visitou?</h2>
-                        <p className="text-gray-600 text-lg mb-4">A sua opinião ajuda-nos a crescer e a servir melhor.</p>
+                        <h2 className="font-destaque text-5xl md:text-6xl text-castanho-raiz mb-4">Já nos visitas-te?</h2>
+                        <p className="text-gray-600 text-lg mb-4">A tua opinião ajuda-nos a crescer<br />e a servir melhor.</p>
 
                         {/* Estrelas */}
                         <div className="text-[#f1c40f] text-5xl tracking-widest mb-4">
                             ★★★★★
                         </div>
 
-                        <p className="text-gray-400 text-sm mb-8">Partilhe a sua experiência no Google.</p>
+                        <p className="text-gray-400 text-sm mb-8">Partilha a tua experiência no Google.</p>
 
                         <a
                             href="https://www.google.com/search?q=De+Raiz+-+Cafetaria+%26+Mercearia+Leiria+reviews"

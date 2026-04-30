@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model clientes {
+  id                  Int                @id @default(autoincrement())
+  nome                String?            @db.VarChar(255)
+  email               String?            @unique(map: "email") @db.VarChar(255)
+  password            String?            @db.VarChar(255)
+  google_id           String?            @db.VarChar(255)
+  foto                String?            @db.Text
+  data_registo        DateTime?          @default(now()) @db.DateTime(0)
+  email_verificado    Boolean?           @default(false)
+  token_verificacao   String?            @db.VarChar(255)
+  token_expiracao     BigInt?
+  role                String?            @default("cliente") @db.VarChar(20)
+  reset_token         String?            @db.VarChar(255)
+  reset_token_expires BigInt?
+  reservas            reservas[]
+  reservas_arquivo    reservas_arquivo[]
+}
+
+model config {
+  chave String  @id @db.VarChar(100)
+  valor String? @db.Text
+}
+
+model ementa {
+  id              Int      @id @default(autoincrement())
+  semana          String?  @db.VarChar(50)
+  dia             String?  @db.VarChar(50)
+  sopa            String?  @db.Text
+  prato           String?  @db.Text
+  sobremesa       String?  @db.Text
+  foto_index      String?  @db.Text
+  foto_menu       String?  @db.Text
+  foto_reservas   String?  @db.Text
+  tem_gluten_free Boolean? @default(false)
+}
+
+model login_seguranca {
+  ip            String  @id @db.VarChar(45)
+  tentativas    Int?    @default(0)
+  bloqueado_ate BigInt? @default(0)
+}
+
+model reservas {
+  id             Int       @id @default(autoincrement())
+  cliente_id     Int?
+  nome           String?   @db.VarChar(255)
+  email_contacto String?   @db.VarChar(255)
+  dia            String?   @db.VarChar(100)
+  hora           String?   @db.VarChar(50)
+  tipo           String?   @db.VarChar(100)
+  pessoas        String?   @db.VarChar(50)
+  pedido         String?   @db.Text
+  data_pedido    String?   @db.VarChar(100)
+  estado         String?   @default("Pendente") @db.VarChar(50)
+  clientes       clientes? @relation(fields: [cliente_id], references: [id], onUpdate: Restrict, map: "reservas_ibfk_1")
+
+  @@index([cliente_id], map: "cliente_id")
+}
+
+model reservas_arquivo {
+  id                Int       @id @default(autoincrement())
+  cliente_id        Int?
+  nome              String?   @db.VarChar(255)
+  dia               String?   @db.VarChar(100)
+  hora              String?   @db.VarChar(50)
+  tipo              String?   @db.VarChar(100)
+  pessoas           String?   @db.VarChar(50)
+  pedido            String?   @db.Text
+  data_pedido       String?   @db.VarChar(100)
+  data_arquivamento DateTime? @default(now()) @db.DateTime(0)
+  estado            String?   @db.VarChar(50)
+  clientes          clientes? @relation(fields: [cliente_id], references: [id], onUpdate: Restrict, map: "reservas_arquivo_ibfk_1")
+
+  @@index([cliente_id], map: "cliente_id")
+}
+
+model sessions {
+  session_id String  @id @db.VarChar(128)
+  expires    Int     @db.UnsignedInt
+  data       String? @db.MediumText
+}
